@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace SalesWebMvc.Models
+﻿namespace SalesWebMvc.Models
 {
     public class Seller
     {
@@ -11,11 +8,18 @@ namespace SalesWebMvc.Models
         public double BaseSalary { get; set; }
         public DateTime Birthdate { get; set; }
         public Department Department { get; set; }
+        public int DepartmentId { get; set; }
+
+        public Seller(int departmentId)
+        {
+            DepartmentId = departmentId;
+        }
+
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
         public Seller()
         {
-        
+
         }
 
         public Seller(int id, string name, string email, double baseSalary, DateTime birthdate, Department department)
@@ -26,9 +30,10 @@ namespace SalesWebMvc.Models
             BaseSalary = baseSalary;
             Birthdate = birthdate;
             Department = department;
+
         }
 
-        public void AddSalesd(SalesRecord sr)       
+        public void AddSalesd(SalesRecord sr)
         {
             Sales.Add(sr);
         }
