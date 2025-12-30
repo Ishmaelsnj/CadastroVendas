@@ -19,10 +19,12 @@ namespace SalesWebMvc.Models
         [DisplayFormat(DataFormatString ="{0:F2}")]
         public double BaseSalary { get; set; }
 
-        [Required(ErrorMessage = "{0} required")]
+        //[Required(ErrorMessage = "{0} required")]
         [Display(Name = "Birth Date")]
         [DataType(DataType.Date)]
         public DateTime Birthdate { get; set; }
+
+
         public Department Department { get; set; }
         public int DepartmentId { get; set; }
 
@@ -63,5 +65,15 @@ namespace SalesWebMvc.Models
         {
             return Sales.Where(sr => sr.Date >= inicial && sr.Date <= final).Sum(sr => sr.Amount);
         }
+
+        public static implicit operator Seller(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        //public static implicit operator Seller(string v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
