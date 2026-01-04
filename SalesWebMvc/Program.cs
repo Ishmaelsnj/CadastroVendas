@@ -14,6 +14,7 @@ builder.Services.AddDbContext<SalesWebMvcContext>(options =>
       options.UseSqlServer(builder.Configuration.GetConnectionString("SalesWebMvcContext"))
       );
 
+builder.Services.AddScoped<SalesRecordService>();
 builder.Services.AddScoped<SellerService>();
 builder.Services.AddScoped<DepartmentService>();
 
